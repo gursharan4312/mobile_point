@@ -20,11 +20,11 @@ app.use((err, req, res, next) => {
   if (!err.statusCode) err.statusCode = 500;
   res.status(err.statusCode).send("Something Went Wrong");
 });
-
+const port = process.env.PORT || 8080;
 connection.once("open", () => {
   console.log("connected to db");
 
-  const server = app.listen(8080, () => {
-    console.log("listening on 8080");
+  const server = app.listen(port, () => {
+    console.log(`listening on ${port}`);
   });
 });
