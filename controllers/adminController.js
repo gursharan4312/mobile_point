@@ -1,4 +1,4 @@
-const Admin = require("../models/admin.js");
+const Admin = require("../models/Admin.js");
 
 exports.loginAdmin = (req, res, next) => {
   let { email, password } = req.body;
