@@ -21,6 +21,7 @@ app.use((err, req, res, next) => {
   res.status(err.statusCode).send("Something Went Wrong");
 });
 const port = process.env.PORT || 8080;
+
 connection.once("open", () => {
   console.log("connected to db");
 
