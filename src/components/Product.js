@@ -11,7 +11,7 @@ export default function Product(props) {
   return (
     <div className="product-card">
       <div className="product">
-        <img src={`./images/comingsoon.jpeg`} alt="product image" />
+        <img src={`./images/coming-soon.jpeg`} alt="product image" />
         <div className="image-overlay"></div>
         <div className="btn" id="product-btn" onClick={handelClick}>
           Buy Now

@@ -16278,7 +16278,7 @@ function Product(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "product"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "./images/comingsoon.jpg",
+    src: "./images/coming-soon.jpeg",
     alt: "product image"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "image-overlay"
