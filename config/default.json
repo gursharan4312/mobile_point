@@ -1,0 +1,29 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../client/build",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "entity": "user",
+    "service": "users",
+    "secret": "SDS7XunR3OdKW+VzzqUpjCF0k4g=",
+    "authStrategies": ["jwt", "local"],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  },
+  "mongodb": "mongodb+srv://gursharan:mongoDbAtlas@cluster0-bcgdl.mongodb.net/mobile_point?retryWrites=true&w=majority"
+}
