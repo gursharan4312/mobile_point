@@ -1,12 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import CartColoumns from "./CartColoumns";
 import CartItem from "./CartItem";
-import ProductContext from "../../context";
 import CartTotals from "./CartTotals";
+import { GlobalStateContext } from "../../context/GlobalContextProvider";
 
 export default function Cart() {
-  const values = useContext(ProductContext);
-  const { cart } = values;
+  const state = useContext(GlobalStateContext);
+  const { cart } = state;
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
+  console.log(state);
   return (
     <div>
       <h1 className="heading">Cart</h1>
@@ -16,7 +20,7 @@ export default function Cart() {
           <div className="container-fluid text-center">
             {cart.map(cartProduct => {
               return (
-                <CartItem key={cartProduct.id} cartProduct={cartProduct} />
+                <CartItem key={cartProduct._id} cartProduct={cartProduct} />
               );
             })}
             <CartTotals />

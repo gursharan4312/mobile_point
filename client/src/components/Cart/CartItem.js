@@ -1,9 +1,39 @@
 import React, { useContext } from "react";
-import productContext from "../../context";
+import { GlobalDispatchContext } from "../../context/GlobalContextProvider";
 
 export default function CartItem({ cartProduct }) {
-  const { id, img, title, price, count, total } = cartProduct;
-  const { addToCart, removeItem, removeItemAll } = useContext(productContext);
+  const { img, title, price, count, total } = cartProduct;
+  const dispatch = useContext(GlobalDispatchContext);
+  const addToCart = () => {
+    dispatch({
+      type: "ADD_ITEM_CART",
+      payload: cartProduct
+    });
+  };
+  const removeItem = () => {
+    dispatch({
+      type: "REMOVE_ITEM_CART",
+      payload: cartProduct
+    });
+    if (count === 1) {
+      dispatch({
+        type: "REMOVE_CART_PRODUCT",
+        payload: cartProduct
+      });
+    }
+  };
+  const removeItemAll = () => {
+    dispatch({
+      type: "CLEAR_ITEM",
+      payload: cartProduct
+    });
+    if (count === 1) {
+      dispatch({
+        type: "REMOVE_CART_PRODUCT",
+        payload: cartProduct
+      });
+    }
+  };
   return (
     <>
       <div className="row my-2">
@@ -31,24 +61,18 @@ export default function CartItem({ cartProduct }) {
           <span className="d-md-none d-sm-inline font-weight-bold">
             Quantity :{" "}
           </span>
-          <span
-            className="btn btn-sm btn-danger mx-1"
-            onClick={() => removeItem(id)}
-          >
+          <span className="btn btn-sm btn-danger mx-1" onClick={removeItem}>
             -
           </span>
           <span className="btn btn-sm btn-outline-primary mx-1"> {count}</span>
-          <span
-            className="btn btn-sm btn-success mx-1"
-            onClick={() => addToCart(id)}
-          >
+          <span className="btn btn-sm btn-success mx-1" onClick={addToCart}>
             +
           </span>
         </div>
         <div className="col-8 col-md-2 mx-auto my-1">
           <button
             className="btn btn-sm btn-outline-danger"
-            onClick={() => removeItemAll(id)}
+            onClick={removeItemAll}
           >
             <span className="d-md-none d-sm-inline font-weight-bold">
               remove{" "}

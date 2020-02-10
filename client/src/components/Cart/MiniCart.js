@@ -1,8 +1,12 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import ProductContext from "../../context";
+
+import { GlobalStateContext } from "../../context/GlobalContextProvider";
 export default function MiniCart() {
-  const { cart } = useContext(ProductContext);
+  const state = useContext(GlobalStateContext);
+  const { cart } = state;
+  // const { cart } = useContext(ProductContext);
   return (
     <MiniCartContainer id="mini-cart" className="d-none d-md-block">
       <h5>Cart items</h5>
@@ -10,7 +14,7 @@ export default function MiniCart() {
         {cart.length > 0 ? (
           cart.map(item => {
             return (
-              <li key={item.id}>
+              <li key={item._id}>
                 <img
                   src={`../${item.img}`}
                   className="img-fluid"

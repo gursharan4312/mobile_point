@@ -12,7 +12,6 @@ export default function Products({ category }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    console.log(state.products);
     setProducts(
       state.products.filter(product =>
         category ? product.category === category : true

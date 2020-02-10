@@ -1,14 +1,24 @@
 import React, { useContext } from "react";
-import productContext from "../../context";
 import styled from "styled-components";
+import {
+  GlobalStateContext,
+  GlobalDispatchContext
+} from "../../context/GlobalContextProvider";
 
 export default function CartTotals() {
-  const { cart, clearCart } = useContext(productContext);
+  const state = useContext(GlobalStateContext);
+  const dispatch = useContext(GlobalDispatchContext);
+  const { cart } = state;
   let total = 0;
   for (let i = 0; i < cart.length; i++) {
     total += cart[i].total;
   }
   let tax = Math.round(total * 0.12 * 100) / 100;
+  const clearCart = () => {
+    dispatch({
+      type: "CLEAR_CART"
+    });
+  };
   return (
     <div className="row my-4">
       <div className="col-8 col-md-3 mx-auto ml-md-auto mr-md-0 text-left">

@@ -29,7 +29,6 @@ function App() {
       .service("products")
       .find()
       .then(response => {
-        console.log(response.data);
         dispatch({
           type: "ADD_PRODUCTS",
           payload: response.data

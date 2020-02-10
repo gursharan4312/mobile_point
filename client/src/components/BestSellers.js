@@ -32,7 +32,7 @@ export default function BeseSellers({ products }) {
         <div className="col-10 mx-auto overflow-hidden">
           <div className="d-inline-flex best-sellers w-100 ">
             {products.map(product => {
-              return <Product product={product} key={product.id} />;
+              return <Product product={product} key={product._id} />;
             })}
           </div>
         </div>
