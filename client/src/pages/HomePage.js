@@ -2,11 +2,9 @@ import React, { useEffect, useContext, useState } from "react";
 import Hero from "../components/Hero";
 import BestSellers from "../components/BestSellers";
 import { Link } from "react-router-dom";
-import ProductContext from "../context";
 import { GlobalStateContext } from "../context/GlobalContextProvider";
 export default function HomePage() {
   const state = useContext(GlobalStateContext);
-  // const { bestSellers, fetch } = useContext(ProductContext);
   const [bestSellers, setBestSellers] = useState([]);
   useEffect(() => {
     setBestSellers([

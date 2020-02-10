@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import ProductContext from "../../context";
 
 import { GlobalStateContext } from "../../context/GlobalContextProvider";
 export default function MiniCart() {

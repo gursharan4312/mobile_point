@@ -1,14 +1,9 @@
 import React, { useEffect, useContext, useState } from "react";
 import BestSellers from "../components/BestSellers";
-import ProductContext from "../context";
-import {
-  GlobalStateContext,
-  GlobalDispatchContext
-} from "../context/GlobalContextProvider";
+import { GlobalStateContext } from "../context/GlobalContextProvider";
 
 export default function SpecialDeals() {
   const state = useContext(GlobalStateContext);
-  const dispatch = useContext(GlobalDispatchContext);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

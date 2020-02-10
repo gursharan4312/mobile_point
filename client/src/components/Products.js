@@ -1,13 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import Product from "./Product";
-import {
-  GlobalStateContext,
-  GlobalDispatchContext
-} from "../context/GlobalContextProvider";
+import { GlobalStateContext } from "../context/GlobalContextProvider";
 
 export default function Products({ category }) {
   const state = useContext(GlobalStateContext);
-  const dispatch = useContext(GlobalDispatchContext);
   const [productCount, setProductCount] = useState(4);
   const [products, setProducts] = useState([]);
 
