@@ -28,6 +28,7 @@ Getting up and running is as easy as 1, 2, 3.
 
    ```
    npm run dev
+
    ```
 
 ## Enjoy
